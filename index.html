@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConsult Esperanza</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MediConsult <span>Esperanza</span></div>
+    </nav>
+
+    <main class="container">
+        <section id="menu-principal" class="card fade-in">
+            <h1>Bienvenido a su Consultorio Virtual</h1>
+            <p>Seleccione una opción para comenzar su evaluación.</p>
+            <div class="grid-menu">
+                <button onclick="showSection('analisis')">1. Análisis del Paciente</button>
+                <button onclick="showSection('habitos')">2. Hábitos y Mejora Saludable</button>
+                <button onclick="abrirPrimerosAuxilios()" style="background-color: #dc3545;">3. Primeros Auxilios Rápidos</button>
+                <button onclick="showSection('psicologia')" style="background-color: #6f42c1;">4. Orientación Psicológica</button>
+                <button onclick="showSection('libro-visitas')" style="background-color: #28a745;">5. Libro de Visitas</button>
+            </div>
+        </section>
+
+        <section id="analisis" class="card hidden">
+            <div id="paso-registro">
+                <h2>Análisis del Paciente</h2>
+                <input type="text" id="nombre" placeholder="Nombre completo">
+                <input type="number" id="edad" placeholder="Edad">
+                <select id="sexo">
+                    <option value="">Seleccione Género</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Otro">Otro / Prefiero no decirlo</option>
+                </select>
+                
+                <p class="mt-20">Seleccione su grupo de síntomas:</p>
+                <select id="grupo-sintomas" onchange="actualizarPadecimientos()">
+                    <option value="">Seleccione grupo...</option>
+                    <option value="1">Insolación / Estomacal / Cabeza</option>
+                    <option value="2">Deshidratación / Muscular / Desmayo</option>
+                </select>
+
+                <select id="padecimiento-especifico" class="hidden"></select>
+
+                <button class="btn-next mt-20" onclick="iniciarCuestionario()">Comenzar Análisis</button>
+            </div>
+
+            <div id="preguntas-contenedor" class="hidden">
+                <h3 id="pregunta-texto"></h3>
+                <div class="grid-menu">
+                    <button onclick="responder('si')">SÍ</button>
+                    <button onclick="responder('no')" style="background-color: #6c757d;">NO</button>
+                </div>
+            </div>
+
+            <div id="resultado-final" class="hidden">
+                <div id="diagnostico-box" class="result-box mt-20"></div>
+                <div id="recomendaciones-box" class="result-box mt-20" style="border-left-color: #28a745;"></div>
+                <div id="link-referencia" class="mt-20"></div>
+                <button class="btn-back" onclick="location.reload()">Nueva Consulta</button>
+            </div>
+
+            <button id="btn-volver-analisis" class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+        </section>
+
+        <section id="habitos" class="card hidden">
+            <h2>Hábitos y Mejora Saludable</h2>
+            <div id="habitos-contenido" class="result-box mt-20">
+                <p>Primero realiza un análisis médico para generar tu plan de vida saludable.</p>
+            </div>
+            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+        </section>
+
+        <section id="primeros-auxilios" class="card hidden">
+            <h2 style="color: #dc3545;">🆘 Guía de Primeros Auxilios</h2>
+            <div id="auxilio-contenido" class="result-box mt-20"></div>
+            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+        </section>
+
+        <section id="psicologia" class="card hidden">
+            <h2 style="color: #6f42c1;">🧠 Orientación Psicológica</h2>
+            <div class="result-box mt-20" style="border-left-color: #6f42c1;">
+                <h3>Guía de Apoyo Escolar</h3>
+                <p>Estrategias de atención para alumnos con condiciones del neurodesarrollo.</p>
+                <div class="grid-menu" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <button onclick="mostrarGuiaPsic('pap')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">P.A. Psicológicos</button>
+                    <button onclick="mostrarGuiaPsic('tdah')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Atención TDAH</button>
+                    <button onclick="mostrarGuiaPsic('autismo')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Espectro Autista</button>
+                    <button onclick="mostrarGuiaPsic('neuro')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Neurodesarrollo</button>
+                </div>
+                <div id="contenido-psicologia" class="mt-20" style="border-top: 1px solid #ddd; padding-top: 15px;">
+                    <p><i>Seleccione una categoría para ver recomendaciones.</i></p>
+                </div>
+            </div>
+            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+        </section>
+
+        <section id="libro-visitas" class="card hidden">
+            <h2 style="color: #28a745;">Libro de Visitas</h2>
+            <div class="result-box mt-20" style="border-left-color: #28a745;">
+                <form action="mailto:esperanzamediconsult@gmail.com" method="post" enctype="text/plain">
+                    <p>Tu nombre:<br>
+                    <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" required></p>
+                    
+                    <p>Escribe tu comentario/sugerencia:<br>
+                    <textarea name="comentarios" rows="10" placeholder="Escribe aquí tu mensaje para el consultorio..." required></textarea></p>
+                    
+                    <div class="grid-menu" style="grid-template-columns: 1fr 1fr;">
+                        <input type="submit" value="Enviar Comentario" style="background-color: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-family: 'Poppins';">
+                        <input type="reset" value="Borrar Comentario" style="background-color: #6c757d; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-family: 'Poppins';">
+                    </div>
+                </form>
+            </div>
+            <p><hr></p>
+            <button class="btn-back" onclick="showSection('menu-principal')">Volver al Menú</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
