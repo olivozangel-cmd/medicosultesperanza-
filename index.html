@@ -38,14 +38,15 @@
                     <option value="Otro">Otro / Prefiero no decirlo</option>
                 </select>
                 
-                <p class="mt-20">Seleccione su grupo de síntomas:</p>
-                <select id="grupo-sintomas" onchange="actualizarPadecimientos()">
-                    <option value="">Seleccione grupo...</option>
-                    <option value="1">Insolación / Estomacal / Cabeza</option>
-                    <option value="2">Deshidratación / Muscular / Desmayo</option>
-                </select>
-
-                <select id="padecimiento-especifico" class="hidden"></select>
+                <p class="mt-20"><b>Seleccione los síntomas que presenta (puede marcar varios):</b></p>
+                <div id="contenedor-checks" style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; background: #f9f9f9; border-radius: 12px; margin-top: 10px;">
+                    <label><input type="checkbox" class="sintoma-check" value="insolacion"> Insolación</label>
+                    <label><input type="checkbox" class="sintoma-check" value="estomacal"> Dolor Estomacal</label>
+                    <label><input type="checkbox" class="sintoma-check" value="cabeza"> Dolor de Cabeza</label>
+                    <label><input type="checkbox" class="sintoma-check" value="deshidratacion"> Deshidratación</label>
+                    <label><input type="checkbox" class="sintoma-check" value="muscular"> Dolor Muscular</label>
+                    <label><input type="checkbox" class="sintoma-check" value="desmayo"> Desmayo</label>
+                </div>
 
                 <button class="btn-next mt-20" onclick="iniciarCuestionario()">Comenzar Análisis</button>
             </div>
@@ -86,14 +87,13 @@
             <h2 style="color: #6f42c1;">🧠 Orientación Psicológica</h2>
             <div class="result-box mt-20" style="border-left-color: #6f42c1;">
                 <h3>Guía de Apoyo Escolar</h3>
-                <p>Estrategias de atención para alumnos con condiciones del neurodesarrollo.</p>
                 <div class="grid-menu" style="grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <button onclick="mostrarGuiaPsic('pap')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">P.A. Psicológicos</button>
-                    <button onclick="mostrarGuiaPsic('tdah')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Atención TDAH</button>
-                    <button onclick="mostrarGuiaPsic('autismo')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Espectro Autista</button>
-                    <button onclick="mostrarGuiaPsic('neuro')" style="background-color: #9575cd; padding: 10px; font-size: 0.8rem;">Neurodesarrollo</button>
+                    <button onclick="mostrarGuiaPsic('pap')" style="background-color: #9575cd;">P.A. Psicológicos</button>
+                    <button onclick="mostrarGuiaPsic('tdah')" style="background-color: #9575cd;">Atención TDAH</button>
+                    <button onclick="mostrarGuiaPsic('autismo')" style="background-color: #9575cd;">Espectro Autista</button>
+                    <button onclick="mostrarGuiaPsic('neuro')" style="background-color: #9575cd;">Neurodesarrollo</button>
                 </div>
-                <div id="contenido-psicologia" class="mt-20" style="border-top: 1px solid #ddd; padding-top: 15px;">
+                <div id="contenido-psicologia" class="mt-20">
                     <p><i>Seleccione una categoría para ver recomendaciones.</i></p>
                 </div>
             </div>
@@ -106,18 +106,15 @@
                 <form action="mailto:esperanzamediconsult@gmail.com" method="post" enctype="text/plain">
                     <p>Tu nombre:<br>
                     <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" required></p>
-                    
                     <p>Escribe tu comentario/sugerencia:<br>
-                    <textarea name="comentarios" rows="10" placeholder="Escribe aquí tu mensaje para el consultorio..." required></textarea></p>
-                    
+                    <textarea name="comentarios" rows="10" placeholder="Escribe aquí tu mensaje..." required></textarea></p>
                     <div class="grid-menu" style="grid-template-columns: 1fr 1fr;">
-                        <input type="submit" value="Enviar Comentario" style="background-color: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-family: 'Poppins';">
-                        <input type="reset" value="Borrar Comentario" style="background-color: #6c757d; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-family: 'Poppins';">
+                        <input type="submit" value="Enviar Comentario" style="background-color: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
+                        <input type="reset" value="Borrar Comentario" style="background-color: #6c757d; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
                     </div>
                 </form>
             </div>
-            <p><hr></p>
-            <button class="btn-back" onclick="showSection('menu-principal')">Volver al Menú</button>
+            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
         </section>
     </main>
 
