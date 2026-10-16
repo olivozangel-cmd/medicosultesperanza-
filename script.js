@@ -1,67 +1,67 @@
 const padecimientos = {
-    "insolacion": {
-        preguntas: ["¿Presentas temperatura corporal superior a 39°C?", "¿Sientes la piel roja, caliente y seca?", "¿Experimentas confusión?"],
-        niveles: ["Fatiga por calor leve.", "Agotamiento moderado.", "ALERTA: Posible golpe de calor."],
-        consejo: "Es vital el enfriamiento por evaporación; rocíe agua tibia.",
-        habitos: { accion: "Ambiente fresco.", dieta: "Suero oral.", prevencion: "Evitar sol 11-16h." },
-        link: "https://medlineplus.gov/spanish/heatillness.html",
+    "sunstroke": {
+        preguntas: ["Do you have a body temperature above 39°C (102.2°F)?", "Does your skin feel red, hot, and dry?", "Are you experiencing confusion?"],
+        niveles: ["Mild heat fatigue.", "Moderate exhaustion.", "ALERT: Possible heatstroke."],
+        consejo: "Evaporative cooling is vital; spray with lukewarm water.",
+        habitos: { accion: "Cool environment.", dieta: "Oral rehydration salts.", prevencion: "Avoid sun from 11 AM to 4 PM." },
+        link: "https://medlineplus.gov/heatillness.html",
         auxilio: { 
-            pasos: ["Mover a la sombra.", "Quitar ropa.", "Paños húmedos."], 
+            pasos: ["Move to the shade.", "Remove excess clothing.", "Apply damp cloths."], 
             img: "insolacion.avif" 
         }
     },
-    "estomacal": {
-        preguntas: ["¿El dolor es punzante?", "¿Presentas náuseas?", "¿Cambios en color de heces?"],
-        niveles: ["Indigestión funcional.", "Gastritis leve.", "Infección."],
-        consejo: "Siga la dieta BRAT (bananas, arroz, manzana, tostadas).",
-        habitos: { accion: "Compresas tibias.", dieta: "Alimentos al vapor.", prevencion: "Masticar 20 veces." },
-        link: "https://www.mayoclinic.org/es/diseases-conditions/gastritis/symptoms-causes/syc-20355807",
+    "stomachache": {
+        preguntas: ["Is the pain sharp?", "Are you experiencing nausea?", "Any changes in stool color?"],
+        niveles: ["Functional indigestion.", "Mild gastritis.", "Infection."],
+        consejo: "Follow the BRAT diet (bananas, rice, applesauce, toast).",
+        habitos: { accion: "Warm compresses.", dieta: "Steamed foods.", prevencion: "Chew food thoroughly (20 times)." },
+        link: "https://www.mayoclinic.org/diseases-conditions/gastritis/symptoms-causes/syc-20355807",
         auxilio: { 
-            pasos: ["Reposo fetal.", "Hidratación constante.", "Calor suave."], 
+            pasos: ["Fetal position rest.", "Constant hydration.", "Gentle warmth."], 
             img: "dolor estomacal.jpg" 
         }
     },
-    "cabeza": {
-        preguntas: ["¿Dolor pulsátil de un solo lado?", "¿Ves destellos?", "¿Impide tus actividades?"],
-        niveles: ["Cefalea tensional.", "Migraña.", "Crisis severa."],
-        consejo: "Mantener horario de sueño regular.",
-        habitos: { accion: "Masajear sienes.", dieta: "Evitar embutidos.", prevencion: "Regla 20-20-20." },
-        link: "https://medlineplus.gov/spanish/headache.html",
+    "headache": {
+        preguntas: ["Is it a throbbing pain on one side?", "Do you see flashing lights?", "Does it interfere with your daily activities?"],
+        niveles: ["Tension headache.", "Migraine.", "Severe crisis."],
+        consejo: "Maintain a regular sleep schedule.",
+        habitos: { accion: "Massage temples.", dieta: "Avoid processed meats.", prevencion: "Follow the 20-20-20 rule." },
+        link: "https://medlineplus.gov/headache.html",
         auxilio: { 
-            pasos: ["Lugar oscuro.", "Paño frío.", "Sin pantallas."], 
+            pasos: ["Dark room.", "Cold compress.", "No screen time."], 
             img: "dolor de cabeza.png" 
         }
     },
-    "deshidratacion": {
-        preguntas: ["¿Orina color ámbar?", "¿Mareos al pararte?", "¿Piel seca?"],
-        niveles: ["Leve.", "Moderada.", "Severa."],
-        consejo: "Beber agua a sorbos constantes.",
-        habitos: { accion: "Líquidos poco a poco.", dieta: "Sandía y pepino.", prevencion: "Recordatorios de agua." },
-        link: "https://www.mayoclinic.org/es/diseases-conditions/dehydration/symptoms-causes/syc-20354086",
+    "dehydration": {
+        preguntas: ["Is your urine amber-colored?", "Do you feel dizzy when standing up?", "Is your skin dry?"],
+        niveles: ["Mild.", "Moderate.", "Severe."],
+        consejo: "Drink water in small, constant sips.",
+        habitos: { accion: "Fluids gradually.", dieta: "Watermelon and cucumber.", prevencion: "Water reminders." },
+        link: "https://www.mayoclinic.org/diseases-conditions/dehydration/symptoms-causes/syc-20354086",
         auxilio: { 
-            pasos: ["Sombra.", "Suero oral.", "Aflojar ropa."], 
+            pasos: ["Shade.", "Oral rehydration solution.", "Loosen clothing."], 
             img: "deshidratacion.webp" 
         }
     },
-    "muscular": {
-        preguntas: ["¿Inflamación?", "¿Dolor al tacto?", "¿Movilidad limitada?"],
-        niveles: ["Mialgia.", "Contractura.", "Desgarro."],
-        consejo: "Aplique método R.I.C.E.",
-        habitos: { accion: "Frío y calor.", dieta: "Potasio.", prevencion: "Estiramientos." },
-        link: "https://medlineplus.gov/spanish/musclepain.html",
+    "musclepain": {
+        preguntas: ["Is there swelling?", "Is it tender to the touch?", "Is mobility limited?"],
+        niveles: ["Myalgia.", "Muscle spasm / contracture.", "Strain or tear."],
+        consejo: "Apply the R.I.C.E. method.",
+        habitos: { accion: "Cold and heat therapy.", dieta: "Potassium intake.", prevencion: "Stretching." },
+        link: "https://medlineplus.gov/musclepain.html",
         auxilio: { 
-            pasos: ["Reposo.", "Hielo envuelto.", "Elevar zona."], 
+            pasos: ["Rest.", "Wrapped ice pack.", "Elevate the affected area."], 
             img: "dolor muscular.png" 
         }
     },
-    "desmayo": {
-        preguntas: ["¿Palpitaciones?", "¿Ocurrió sentado?", "¿Tardó en orientarse?"],
-        niveles: ["Síncope vasovagal.", "Hipotensión.", "Origen incierto."],
-        consejo: "Tense músculos de las piernas.",
-        habitos: { accion: "Piernas elevadas.", dieta: "Agua mineral.", prevencion: "Evitar cambios bruscos." },
-        link: "https://www.mayoclinic.org/es/diseases-conditions/fainting/symptoms-causes/syc-20353389",
+    "fainting": {
+        preguntas: ["Did you experience heart palpitations?", "Did it happen while sitting or standing?", "Did it take time to regain orientation?"],
+        niveles: ["Vasovagal syncope.", "Hypotension.", "Uncertain origin."],
+        consejo: "Tense your leg muscles.",
+        habitos: { accion: "Elevated legs.", dieta: "Mineral water.", prevencion: "Avoid sudden position changes." },
+        link: "https://www.mayoclinic.org/diseases-conditions/fainting/symptoms-causes/syc-20353389",
         auxilio: { 
-            pasos: ["Acostar boca arriba.", "Elevar piernas.", "Aire fresco."], 
+            pasos: ["Lie flat on your back.", "Elevate legs.", "Fresh air."], 
             img: "desmayo.webp" 
         }
     }
@@ -83,7 +83,7 @@ function iniciarCuestionario() {
     const nombre = document.getElementById('nombre').value;
 
     if (!nombre || listaSintomasElegidos.length === 0) {
-        return alert("Por favor ingresa tu nombre y elige al menos un síntoma.");
+        return alert("Please enter your name and select at least one symptom.");
     }
 
     indiceActualSintoma = 0;
@@ -121,18 +121,18 @@ function mostrarResultado() {
     document.getElementById('preguntas-contenedor').classList.add('hidden');
     document.getElementById('resultado-final').classList.remove('hidden');
 
-    let reporteDiag = `<h3>Reporte: ${document.getElementById('nombre').value}</h3>`;
-    let reporteHab = `<strong>🩺 Recomendaciones Combinadas:</strong><br>`;
+    let reporteDiag = `<h3>Report: ${document.getElementById('nombre').value}</h3>`;
+    let reporteHab = `<strong>🩺 Combined Recommendations:</strong><br>`;
     let enlaces = "";
 
     listaSintomasElegidos.forEach(s => {
         const info = padecimientos[s];
-        const sis = respuestasTemporales.filter(r => r.pad === s && r.res === 'si').length;
+        const sis = respuestasTemporales.filter(r => r.pad === s && r.res === 'yes').length;
         const diagIdx = sis === 0 ? 0 : (sis > 2 ? 2 : sis - 1);
 
         reporteDiag += `<p><b>${s.toUpperCase()}:</b> ${info.niveles[diagIdx]}</p>`;
-        reporteHab += `<div class="mt-20"><b>${s}:</b> ${info.consejo} <br>✅ Acción: ${info.habitos.accion}</div>`;
-        enlaces += `<a href="${info.link}" target="_blank">→ Guía ${s}</a><br>`;
+        reporteHab += `<div class="mt-20"><b>${s}:</b> ${info.consejo} <br>✅ Action: ${info.habitos.accion}</div>`;
+        enlaces += `<a href="${info.link}" target="_blank">→ ${s} Guide</a><br>`;
     });
 
     document.getElementById('diagnostico-box').innerHTML = reporteDiag;
@@ -145,7 +145,7 @@ function abrirPrimerosAuxilios() {
     const checks = document.querySelectorAll('.sintoma-check:checked');
     const seleccion = Array.from(checks).map(c => c.value);
 
-    if (seleccion.length === 0) return alert("Por favor, selecciona síntomas en el Análisis primero.");
+    if (seleccion.length === 0) return alert("Please select symptoms in the Analysis section first.");
 
     let htmlFinal = "";
     seleccion.forEach(s => {
@@ -164,10 +164,10 @@ function abrirPrimerosAuxilios() {
 
 function mostrarGuiaPsic(tipo) {
     const guias = {
-        'pap': "<h4>P.A.P.</h4><p>1. Escucha activa.<br>2. Respiración 4-4-4.<br>3. Técnica 5-4-3-2-1.</p>",
-        'tdah': "<h4>TDAH</h4><p>- Instrucciones cortas.<br>- Contacto visual directo.<br>- Pausas activas.</p>",
-        'autismo': "<h4>TEA</h4><p>- Anticipar cambios.<br>- Lenguaje literal.<br>- Espacios tranquilos.</p>",
-        'neuro': "<h4>Neurodesarrollo</h4><p>- Tiempo extra.<br>- Estructura clara.<br>- Refuerzo positivo.</p>"
+        'pap': "<h4>P.F.A. (Psychological First Aid)</h4><p>1. Active listening.<br>2. Breathing technique 4-4-4.<br>3. Grounding technique 5-4-3-2-1.</p>",
+        'adhd': "<h4>ADHD</h4><p>- Short, clear instructions.<br>- Direct eye contact.<br>- Active movement breaks.</p>",
+        'autism': "<h4>ASD</h4><p>- Anticipate changes.<br>- Literal language.<br>- Calm, quiet spaces.</p>",
+        'neuro': "<h4>Neurodevelopment</h4><p>- Extra time.<br>- Clear structure.<br>- Positive reinforcement.</p>"
     };
     document.getElementById('contenido-psicologia').innerHTML = guias[tipo];
 }
