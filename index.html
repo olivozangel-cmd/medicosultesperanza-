@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,46 +15,46 @@
 
     <main class="container">
         <section id="menu-principal" class="card fade-in">
-            <h1>Bienvenido a su Consultorio Virtual</h1>
-            <p>Seleccione una opción para comenzar su evaluación.</p>
+            <h1>Welcome to Your Virtual Clinic</h1>
+            <p>Select an option to begin your evaluation.</p>
             <div class="grid-menu">
-                <button onclick="showSection('analisis')">1. Análisis del Paciente</button>
-                <button onclick="showSection('habitos')">2. Hábitos y Mejora Saludable</button>
-                <button onclick="abrirPrimerosAuxilios()" style="background-color: #dc3545;">3. Primeros Auxilios Rápidos</button>
-                <button onclick="showSection('psicologia')" style="background-color: #6f42c1;">4. Orientación Psicológica</button>
-                <button onclick="showSection('libro-visitas')" style="background-color: #28a745;">5. Libro de Visitas</button>
+                <button onclick="showSection('analisis')">1. Patient Analysis</button>
+                <button onclick="showSection('habitos')">2. Healthy Habits & Improvement</button>
+                <button onclick="abrirPrimerosAuxilios()" style="background-color: #dc3545;">3. Quick First Aid</button>
+                <button onclick="showSection('psicologia')" style="background-color: #6f42c1;">4. Psychological Guidance</button>
+                <button onclick="showSection('libro-visitas')" style="background-color: #28a745;">5. Guestbook</button>
             </div>
         </section>
 
         <section id="analisis" class="card hidden">
             <div id="paso-registro">
-                <h2>Análisis del Paciente</h2>
-                <input type="text" id="nombre" placeholder="Nombre completo">
-                <input type="number" id="edad" placeholder="Edad">
+                <h2>Patient Analysis</h2>
+                <input type="text" id="nombre" placeholder="Full name">
+                <input type="number" id="edad" placeholder="Age">
                 <select id="sexo">
-                    <option value="">Seleccione Género</option>
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                    <option value="Otro">Otro / Prefiero no decirlo</option>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other / Prefer not to say</option>
                 </select>
                 
-                <p class="mt-20"><b>Seleccione los síntomas que presenta (puede marcar varios):</b></p>
+                <p class="mt-20"><b>Select the symptoms you are experiencing (you can select multiple):</b></p>
                 <div id="contenedor-checks" style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 15px; background: #f9f9f9; border-radius: 12px; margin-top: 10px;">
-                    <label><input type="checkbox" class="sintoma-check" value="insolacion"> Insolación</label>
-                    <label><input type="checkbox" class="sintoma-check" value="estomacal"> Dolor Estomacal</label>
-                    <label><input type="checkbox" class="sintoma-check" value="cabeza"> Dolor de Cabeza</label>
-                    <label><input type="checkbox" class="sintoma-check" value="deshidratacion"> Deshidratación</label>
-                    <label><input type="checkbox" class="sintoma-check" value="muscular"> Dolor Muscular</label>
-                    <label><input type="checkbox" class="sintoma-check" value="desmayo"> Desmayo</label>
+                    <label><input type="checkbox" class="sintoma-check" value="sunstroke"> Sunstroke</label>
+                    <label><input type="checkbox" class="sintoma-check" value="stomachache"> Stomachache</label>
+                    <label><input type="checkbox" class="sintoma-check" value="headache"> Headache</label>
+                    <label><input type="checkbox" class="sintoma-check" value="dehydration"> Dehydration</label>
+                    <label><input type="checkbox" class="sintoma-check" value="musclepain"> Muscle Pain</label>
+                    <label><input type="checkbox" class="sintoma-check" value="fainting"> Fainting</label>
                 </div>
 
-                <button class="btn-next mt-20" onclick="iniciarCuestionario()">Comenzar Análisis</button>
+                <button class="btn-next mt-20" onclick="iniciarCuestionario()">Start Analysis</button>
             </div>
 
             <div id="preguntas-contenedor" class="hidden">
                 <h3 id="pregunta-texto"></h3>
                 <div class="grid-menu">
-                    <button onclick="responder('si')">SÍ</button>
+                    <button onclick="responder('yes')">YES</button>
                     <button onclick="responder('no')" style="background-color: #6c757d;">NO</button>
                 </div>
             </div>
@@ -63,58 +63,58 @@
                 <div id="diagnostico-box" class="result-box mt-20"></div>
                 <div id="recomendaciones-box" class="result-box mt-20" style="border-left-color: #28a745;"></div>
                 <div id="link-referencia" class="mt-20"></div>
-                <button class="btn-back" onclick="location.reload()">Nueva Consulta</button>
+                <button class="btn-back" onclick="location.reload()">New Consultation</button>
             </div>
 
-            <button id="btn-volver-analisis" class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+            <button id="btn-volver-analisis" class="btn-back" onclick="showSection('menu-principal')">Back</button>
         </section>
 
         <section id="habitos" class="card hidden">
-            <h2>Hábitos y Mejora Saludable</h2>
+            <h2>Healthy Habits & Improvement</h2>
             <div id="habitos-contenido" class="result-box mt-20">
-                <p>Primero realiza un análisis médico para generar tu plan de vida saludable.</p>
+                <p>Please complete a medical analysis first to generate your healthy lifestyle plan.</p>
             </div>
-            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+            <button class="btn-back" onclick="showSection('menu-principal')">Back</button>
         </section>
 
         <section id="primeros-auxilios" class="card hidden">
-            <h2 style="color: #dc3545;">🆘 Guía de Primeros Auxilios</h2>
+            <h2 style="color: #dc3545;">🆘 First Aid Guide</h2>
             <div id="auxilio-contenido" class="result-box mt-20"></div>
-            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+            <button class="btn-back" onclick="showSection('menu-principal')">Back</button>
         </section>
 
         <section id="psicologia" class="card hidden">
-            <h2 style="color: #6f42c1;">🧠 Orientación Psicológica</h2>
+            <h2 style="color: #6f42c1;">🧠 Psychological Guidance</h2>
             <div class="result-box mt-20" style="border-left-color: #6f42c1;">
-                <h3>Guía de Apoyo Escolar</h3>
+                <h3>School Support Guide</h3>
                 <div class="grid-menu" style="grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <button onclick="mostrarGuiaPsic('pap')" style="background-color: #9575cd;">P.A. Psicológicos</button>
-                    <button onclick="mostrarGuiaPsic('tdah')" style="background-color: #9575cd;">Atención TDAH</button>
-                    <button onclick="mostrarGuiaPsic('autismo')" style="background-color: #9575cd;">Espectro Autista</button>
-                    <button onclick="mostrarGuiaPsic('neuro')" style="background-color: #9575cd;">Neurodesarrollo</button>
+                    <button onclick="mostrarGuiaPsic('pap')" style="background-color: #9575cd;">P.F.A. Psychological</button>
+                    <button onclick="mostrarGuiaPsic('adhd')" style="background-color: #9575cd;">ADHD Support</button>
+                    <button onclick="mostrarGuiaPsic('autism')" style="background-color: #9575cd;">Autism Spectrum</button>
+                    <button onclick="mostrarGuiaPsic('neuro')" style="background-color: #9575cd;">Neurodevelopment</button>
                 </div>
                 <div id="contenido-psicologia" class="mt-20">
-                    <p><i>Seleccione una categoría para ver recomendaciones.</i></p>
+                    <p><i>Select a category to view recommendations.</i></p>
                 </div>
             </div>
-            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+            <button class="btn-back" onclick="showSection('menu-principal')">Back</button>
         </section>
 
         <section id="libro-visitas" class="card hidden">
-            <h2 style="color: #28a745;">Libro de Visitas</h2>
+            <h2 style="color: #28a745;">Guestbook</h2>
             <div class="result-box mt-20" style="border-left-color: #28a745;">
                 <form action="mailto:esperanzamediconsult@gmail.com" method="post" enctype="text/plain">
-                    <p>Tu nombre:<br>
-                    <input type="text" name="nombre" placeholder="Ingresa tu nombre completo" required></p>
-                    <p>Escribe tu comentario/sugerencia:<br>
-                    <textarea name="comentarios" rows="10" placeholder="Escribe aquí tu mensaje..." required></textarea></p>
+                    <p>Your name:<br>
+                    <input type="text" name="name" placeholder="Enter your full name" required></p>
+                    <p>Write your comment/suggestion:<br>
+                    <textarea name="comments" rows="10" placeholder="Type your message here..." required></textarea></p>
                     <div class="grid-menu" style="grid-template-columns: 1fr 1fr;">
-                        <input type="submit" value="Enviar Comentario" style="background-color: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
-                        <input type="reset" value="Borrar Comentario" style="background-color: #6c757d; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
+                        <input type="submit" value="Send Comment" style="background-color: #28a745; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
+                        <input type="reset" value="Clear Comment" style="background-color: #6c757d; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer;">
                     </div>
                 </form>
             </div>
-            <button class="btn-back" onclick="showSection('menu-principal')">Volver</button>
+            <button class="btn-back" onclick="showSection('menu-principal')">Back</button>
         </section>
     </main>
 
